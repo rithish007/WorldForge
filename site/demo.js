@@ -7,6 +7,10 @@ if (typeof demoUrl === "string" && demoUrl.trim()) {
       throw new Error("Use a local or HTTPS video source.");
     }
     const video = document.getElementById("demo-video");
+    // Start with captions off; native player controls remain available to enable them.
+    video.addEventListener("loadedmetadata", () => {
+      for (const track of video.textTracks) track.mode = "disabled";
+    }, { once: true });
     video.addEventListener("loadedmetadata", () => {
       if (video.videoWidth && video.videoHeight) {
         document.getElementById("demo-panel").style.setProperty("--video-ratio", String(video.videoWidth / video.videoHeight));

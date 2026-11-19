@@ -1,0 +1,73 @@
+WEBVTT
+
+NOTE Approximate script-based captions; no speech transcription or forced alignment.
+
+00:00:00.000 --> 00:00:05.112
+WorldForge brings warehouse design, route
+planning and mobile robot simulation into
+
+00:00:05.112 --> 00:00:06.506
+one web workspace.
+
+00:00:06.506 --> 00:00:09.669
+Start by describing the environment you want
+to build.
+
+00:00:09.669 --> 00:00:13.536
+For example, a twenty by thirty metre
+warehouse with storage racks
+
+00:00:13.536 --> 00:00:14.239
+and obstacles.
+
+00:00:14.239 --> 00:00:19.406
+Connect your own OpenAI API key for AI-
+assisted building and editing.
+
+00:00:19.406 --> 00:00:24.102
+For this walkthrough, we'll open an existing
+Astra-authored sample warehouse.
+
+00:00:24.102 --> 00:00:29.539
+Explore the layout, then choose the robot you
+want to test.
+
+00:00:29.539 --> 00:00:33.103
+The clearance overlay shows the space it needs
+around obstacles.
+
+00:00:33.103 --> 00:00:36.408
+Set a start and destination directly in the
+scene, and plan
+
+00:00:36.408 --> 00:00:41.102
+a route through the warehouse.
+
+00:00:41.102 --> 00:00:44.721
+Adjust a rack's dimensions, apply the edit,
+and plan again to
+
+00:00:44.721 --> 00:00:49.103
+see how the layout changes the route.
+
+00:00:49.103 --> 00:00:55.103
+Now run the mission using planar MuJoCo
+physics.
+
+00:00:55.103 --> 00:01:01.262
+Follow the robot through the warehouse, then
+inspect the outcome.
+
+00:01:01.262 --> 00:01:05.837
+Review time, distance, contacts and clearance,
+and replay the journey from
+
+00:01:05.837 --> 00:01:08.102
+different angles.
+
+00:01:08.102 --> 00:01:12.322
+WorldForge helps you explore warehouse layouts
+and test robot missions before
+
+00:01:12.322 --> 00:01:14.240
+moving to a physical setup.

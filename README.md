@@ -4,7 +4,17 @@ A browser-based warehouse builder and AMR simulation MVP for the
 [Product Hunt GPT-6 Astra Challenge](https://www.producthunt.com/contests/gpt-6-astra-challenge),
 targeting 18 September 2026. The GitHub repository is named WordForge.
 
-**Submission page:** [worldforge-nine.vercel.app](https://worldforge-nine.vercel.app/)
+**Submission page:** [worldforge-lab.vercel.app](https://worldforge-lab.vercel.app/)
+
+**Where it is going:** a fully browser-based, prompt-native robot simulation
+editor, built as an easy-to-use alternative to heavyweight desktop simulators. It
+will have:
+
+- a choice of AI models, frontier or open-weight;
+- a large library of robots and assets with clear licences;
+- bring-your-own-key or subscription access to AI.
+
+See [docs/VISION.md](docs/VISION.md). The sections below describe the MVP as built.
 
 The static page is live. The local simulator now runs two warehouse robots with
 validated editing, safe route planning and measured MuJoCo results. The recorded demo is embedded on the submission page. The public simulator
@@ -33,28 +43,32 @@ The build contract is [Plan.md](Plan.md). Start with the coding instructions in
 [AGENTS.md](AGENTS.md), current state in [PROJECT.md](PROJECT.md), and
 [Astra build kickoff](docs/ASTRA_BUILD.md).
 
-## Start Astra
+## Start Codex
 
 From this repository in PowerShell:
 
 ```powershell
 ./scripts/start-astra.ps1 -Check
 ./scripts/start-astra.ps1
+# Optional explicit model and effort:
+./scripts/start-astra.ps1 -Model gpt-6.1-sol -ReasoningEffort high
 ```
 
-The launcher opens an interactive Codex session using `gpt-6-astra`, high
-reasoning, this checkout, and the complete build kickoff. It uses the existing
-Codex installation and authentication; it does not launch on `-Check`.
+The launcher opens an interactive Codex session using your Codex defaults,
+this checkout, and the complete build kickoff. Model and effort can be overridden
+independently; choose an effort supported by your selected model. It uses the
+existing Codex installation and authentication; it does not launch on `-Check`.
 
-For the Codex app, select **GPT-6 Astra / High** and send:
+For the Codex app, choose your model and reasoning effort in the composer and send:
 
 > Read AGENTS.md, Plan.md, PROJECT.md, and docs/ASTRA_BUILD.md. Execute the build
 > kickoff, starting at the first unfinished gate, and update PROJECT.md with
 > implementation and verification evidence.
 
-Project defaults are stored in [.codex/config.toml](.codex/config.toml). Codex
-loads them for trusted projects; an existing app task may retain an explicit
-model selection. See [Codex configuration](https://learn.chatgpt.com/docs/config-file/config-basic).
+[.codex/config.toml](.codex/config.toml) deliberately leaves model and effort unset.
+An existing app task may retain its own selection. These coding settings are
+separate from WorldForge's application API model.
+See [Codex configuration](https://learn.chatgpt.com/docs/config-file/config-basic).
 
 The local foundation, planning and physics slice is implemented and tested.
 Live AI verification, a public simulator backend, recording and submission remain;

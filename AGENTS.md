@@ -2,6 +2,27 @@
 
 ## Start here
 
+**Direction update, 19 November:** the challenge deadline has passed. The user's
+forward goal is a fully browser-based, prompt-native robot simulation editor.
+They describe it as an easy-to-use, Lovable or Claude Design style alternative to
+NVIDIA Isaac Sim. Its parts are:
+
+- model-agnostic AI: frontier and open-weight models;
+- a large asset and robot library: SimReady and openly licensed assets;
+- two ways to pay for AI: bring-your-own-key or a WorldForge subscription.
+
+Read `docs/VISION.md`. `Plan.md` stays the unchanged contract for the shipped MVP.
+The MVP limits below continue to govern current code until the user approves the
+corresponding VISION phase or decision. Those limits are:
+
+- primitives only and two AMRs;
+- no accounts or database;
+- OpenAI-only API;
+- server-side MuJoCo.
+
+The correctness contracts and evidence rules apply to all future work. Do not
+market or name the product as a version of Isaac Sim or use NVIDIA branding.
+
 **Current scope override, 15 September:** the user now wants a recorded local
 demo before public hosting/API access. Read `docs/VIDEO_DEMO.md` first and apply
 its local gates and reduced scope wherever they differ from the original plan
@@ -64,9 +85,10 @@ work, record the missing dependency, and do not claim the gate passed.
 
 ## Astra and the product's OpenAI integration
 
-Use `gpt-6-astra` as the coding model, with `high` reasoning by default. Project
-defaults are in `.codex/config.toml`; the launcher also passes them explicitly.
-Do not confuse the coding model with the product's API configuration.
+Use the user's selected Codex model and reasoning effort, including GPT-6.1 Sol.
+Do not force Astra or high effort. `.codex/config.toml` leaves both unset;
+`scripts/start-astra.ps1` accepts optional `-Model` and `-ReasoningEffort` overrides.
+The coding model is separate from the product's API configuration below.
 
 During the agent milestone, use the OpenAI Responses API and typed function
 tools. Default initial world generation and result interpretation to

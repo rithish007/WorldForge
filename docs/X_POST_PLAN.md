@@ -25,7 +25,7 @@ mission succeeds or that these are real-world hardware measurements.
 > Day 3 of WorldForge: added a prompt-first home, recognizable warehouse models, and system light/dark themes. The submission page is live; the simulator runs locally. Next I’m reviewing the experience before connecting live AI. What would you test first?
 
 Visual: actual entry and warehouse screenshots, optionally comparing themes.
-Optional reply/link: https://worldforge-nine.vercel.app/ — describe it as the
+Optional reply/link: https://worldforge-lab.vercel.app/ — describe it as the
 project page, not a public interactive simulator.
 
 ## Next working day — choose after the product review

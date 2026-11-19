@@ -1,6 +1,247 @@
 # WorldForge project state
 
-Updated: 2026-09-18. Phase: **Submission first: robotics-focused editor and visitor-funded AI connection. Live model and public simulator verification pending.**
+Updated: 2026-11-19. Phase: **Post-challenge direction setting. The MVP is a local prototype. The forward vision is recorded in `docs/VISION.md`, and its open decisions are pending the user's answers.**
+
+## Dead link removed and product vision recorded, 19 November
+
+- **Site check, 18 Nov:** the old worldforge-nine alias returned HTTP 404
+  `DEPLOYMENT_NOT_FOUND`. https://worldforge-lab.vercel.app/ returned 200 with the
+  74 s video.
+- **Dead link removed, at the user's request:**
+  - Current-facing references now point to worldforge-lab: `README.md`,
+    `docs/SUBMIT_NOW.md`, `docs/VIDEO_DEMO.md`, `docs/X_POST_PLAN.md`, and the
+    Home link in `web/components/AppHeader.tsx`.
+  - Historical log lines here and in `docs/HOSTING.md` now name it "the former
+    worldforge-nine alias (retired)".
+  - No Vercel alias was changed or deleted.
+  - The frontend was not rebuilt; `start-demo.ps1 -Build` picks up the header change.
+- **Vision recorded.** The user stated the intended product:
+  - a fully browser-based, prompt-native robot simulation editor, an easy-to-use
+    alternative to Isaac Sim in the style of Lovable or Claude Design;
+  - models: Claude Opus 5.5, Claude Fable 5.2, GPT-6.1 Sol and open-weight models;
+  - assets: NVIDIA SimReady plus open asset collections;
+  - AI access: bring-your-own-key or a paid monthly subscription.
+  
+  The analysis, MVP-rule conflicts, architecture proposal, phased roadmap, risks
+  and seven open decisions are in `docs/VISION.md`. `AGENTS.md`, `CLAUDE.md`,
+  `README.md` and `docs/REVIEW_AND_NEXT.md` point to it. `Plan.md` is unchanged.
+- **Not done:** no code for the vision yet; live AI is still unverified; nothing
+  is committed.
+- **Next concrete action:** get the user's answers to the VISION open decisions
+  (physics location, key handling, first providers). Then start Phase 1, the
+  model-agnostic agent layer with per-model evals.
+
+## Short narrated demo published, 14 October
+
+- User approved publishing the reviewed 1:14 cut. Uploaded the exact local review
+  video (13,746,347 bytes, 74.267 s, 2558 x 1496 / 30 fps) through the signed-in
+  Vercel Blob dashboard using only Codex's built-in browser. New public URL:
+  https://nb9armtxzicez6ho.public.blob.vercel-storage.com/WorldForge-Demo-Short-Narrated.mp4.
+  Previous Blob videos remain available for rollback; the website uses the new URL.
+- Updated `site/demo-config.js` and matching `site/captions-en.vtt`; versioned the
+  config/caption references in `site/index.html`. Captions remain optional and off
+  initially; no transcript or timed script is included in the live page.
+- Deployed only the 15 public static site files from the isolated release at
+  `artifacts/deploy/short-20261014/`. Verified the existing project/team/root
+  directory before staging. READY staged production deployment:
+  https://worldforge-osjm42k4j-rithishrs007projects.vercel.app,
+  ID `dpl_EmiXxwQvpC3a9BTmaQojkqsckbpR`, then promoted that exact deployment.
+  Commands: `vercel deploy --prod --skip-domain --yes --scope rithishrs007projects`
+  and `vercel promote <verified-deployment-url> --yes`, with explicit release cwd.
+- Production https://worldforge-lab.vercel.app/ verified anonymously: HTTP 200
+  HTML/config/matching captions, Blob HTTP 206 with exact video byte length.
+  Actual built-in browser loads 74.266667 s video with English captions disabled,
+  playback available, and no media error. Node syntax checks pass. No ElevenLabs
+  calls or further compression were performed. Changes were published from the
+  prepared files; no Git push or unrelated simulator changes were included.
+
+## Complete short narrated local review, 14 October
+
+- User restored ElevenLabs access by purchasing a plan and authorized careful
+  credit use. Reused the existing approved Daniel Multilingual v2 node. Estimated
+  first, then requested exactly one complete take: reported 1,058 credits,
+  session `3XcBRVIapPf2YIejgOHa`, generation `pr6TkXOTwDTQsYKtbi32`.
+  Generation succeeded, 62.508 s. No additional speech generation, transcription,
+  alternate voice, subscription purchase or account change was performed.
+  Remaining credit balance and invoiced charges were not verified.
+- Finished the 74.267 s local narrated cut at http://127.0.0.1:4175/short/.
+  Nine cohesive paragraphs, including "into one web workspace". Narration begins
+  with the warehouse/robot opening; slow typing and idle footage are shortened.
+  Start/goal selection, rack Apply and replan are preserved. No missing narration
+  section is represented by caption-only filler. Daniel's original speech samples
+  are preserved; 11.8675 s of action pauses were inserted at existing quiet points
+  locally, with no speech time stretching or additional ElevenLabs use.
+- Reproducible commands: `.venv/Scripts/python.exe scripts/time-short-narration.py`;
+  `.venv/Scripts/python.exe scripts/build-short-demo.py`;
+  `.venv/Scripts/python.exe scripts/time-short-narration.py --captions-only`;
+  `.venv/Scripts/python.exe scripts/create-short-review-page.py`.
+  Edit configuration/provenance is in `docs/demo-short-edit.json`; private media,
+  download manifest and QA evidence remain in ignored `artifacts/voiceover/short/`.
+- Checks: exact PCM speech preservation around inserted silence; original
+  2558 x 1496 / 30 fps; complete decode of all 2,228 frames; no detected black
+  frames; audio -18.02 LUFS / -1.74 dBTP after AAC export. Three subagents reviewed
+  edit tooling, claims/visuals and review UI. Final contact sheets preserve key
+  actions. Built-in browser playback starts without media error; captions start
+  disabled and can be enabled. HTTP 200 page/VTT, 206 video seeking, and 404 private
+  manifest. Python parsing and diff whitespace checks pass; Plan.md hash unchanged.
+- Captions remain optional/off initially and use approximate script-based timings,
+  with no paid transcription. Local narration script stays collapsed. Original
+  take link is explicitly labelled separately from the aligned video soundtrack.
+- Compression remains paused; this is the necessary edit render, not a file-size
+  optimization pass. Previous reviews remain available. `site/` and production
+  were not changed in this milestone. Only the built-in browser was used; external
+  browsers were untouched. Next: user reviews voice, pronunciation and pacing
+  locally before approving any publication of this new cut.
+
+## Shorter local demo edit, 14 October
+
+- User paused compression and authorized the proposed local-only shorter edit
+  with subagents. Opening script now says "into one web workspace" as annotated.
+  User browser preference: use only Codex's built-in browser; leave external
+  browser windows and tabs untouched.
+- Three subagents handled edit tooling, local review UI, and independent wording/
+  visual QA. Final script and edit decisions: `docs/demo-short-edit.json`.
+  It has 159 words, separates the example prompt from the Astra-authored sample,
+  omits unimplemented in-app model/effort selectors, uses general robot choice,
+  says planar MuJoCo physics, and explains results without reading exact numbers.
+- One continuous Daniel Multilingual v2 take was estimated at 1,058 credits
+  (tool price estimate USD 0.1058). Exactly one generation was attempted in flow
+  `KFFgO1X0ga1w2BPZMbZf`, session `bWakA5S0FaUEQsMTvWXr`.
+  It failed with the existing "Free Tier access has been disabled" account
+  restriction. No retry, alternate generation, account change or subscription
+  purchase was made. Reported estimate/request cost is not proof of a billed
+  charge; remaining balance was not verified. User is considering a paid plan.
+- Finished all independent local editing: an 80-second silent visual review from
+  the existing recording, preserving 2558 x 1496 and 30 fps. Strong warehouse/robot
+  opening; short typing/API/sample shots; robot/mission/route; rack edit/replan;
+  Run; selected replay and closing view. No full rerecord required. Idle camera
+  exploration, metrics narration, theme switching and reset are removed.
+- This is an edit render (H.264 CRF16), not a file-size optimization pass. Original
+  footage and prior review remain available. No new media or source was published.
+  `site/` was not edited during this milestone and production was not redeployed.
+- Local review: http://127.0.0.1:4175/short/. Clearly labelled VISUAL CUT —
+  NARRATION PENDING; no caption-only filler or stale voice is presented as complete.
+  New script is collapsed under Narration script. Generated artifacts stay in
+  ignored `artifacts/voiceover/short/`. Normal narrated mode fails without a
+  complete take; captions will remain optional/off initially when audio is ready.
+- Commands: `.venv/Scripts/python.exe scripts/build-short-demo.py --picture-only`;
+  `.venv/Scripts/python.exe scripts/create-short-review-page.py`; restarted only
+  the verified local review-server process for the new `/short/` routes.
+- Checks: exact 80.000 s / 2400 frames / original dimensions and fps / no audio;
+  full decode and black-frame scan passed; actual browser playback passed;
+  anonymous local page HTTP 200 and byte seeking HTTP 206; private artifact route
+  HTTP 404; Python/JavaScript checks and diff whitespace passed. Subagent inspected
+  the output contact sheets and found no critical flow/action issues. Plan.md hash
+  remains the original recorded SHA-256.
+- Next: user reviews the visual pacing and restores ElevenLabs generation access.
+  Then generate the one approved cohesive narration take, align/review the audio,
+  and present the complete local video before any further publication.
+
+## Narrated demo published, 14 October
+
+- User approved replacing the live silent video with the reviewed narrated file,
+  requested captions off initially, and excluded transcript/timed-script UI.
+- Uploaded `artifacts/voiceover/WorldForge-Demo-Narrated.mp4` (316,808,523 bytes)
+  through the authenticated Vercel Blob dashboard to the existing WorldForge store.
+  Public URL:
+  https://nb9armtxzicez6ho.public.blob.vercel-storage.com/WorldForge-Demo-Narrated.mp4.
+  New pathname avoids stale cached silent video. Original SampleRec.mp4 remains
+  as a rollback copy; the site's player now references only the narrated recording.
+- The reviewed 00:38-00:53 audio gap remains. No new ElevenLabs calls were made.
+  Optional `site/captions-en.vtt` includes available speech only, with approximate
+  phrase timings. No captions are burned into the video; `<track>` has no default
+  attribute and initial metadata loading disables it. Native controls enable it.
+- Static release includes only the 15 public files from site/, staged under
+  `artifacts/deploy/voiceover-20261014/site/`, with existing project link metadata.
+  No review UI, script, source video, application code or environment files shipped.
+- Existing Vercel connector returned scope 403; CLI project inspection verified
+  worldforge / rithishrs007projects / Root Directory site. Automatic approval review
+  rejected exporting production environment credentials for Blob CLI upload due
+  to credential exposure risk. Used the signed-in dashboard upload instead; no
+  credentials were exported, printed or added to the release.
+- Staged command: `vercel deploy --prod --skip-domain --yes` with explicit scope
+  and release cwd. Verified the protected staged page in the browser and caption
+  content using authenticated `vercel curl`. Promoted the same ready deployment:
+  https://worldforge-8wvef818w-rithishrs007projects.vercel.app,
+  ID `dpl_AkMjYpmovAGqTJVar5F6YE2JfgpG`.
+- Production https://worldforge-lab.vercel.app/ verified anonymously: expected
+  HTML/video configuration/caption contents; narrated Blob HTTP 206 and exact
+  length. Actual browser: duration 156.567 s, playback, English track initially
+  disabled, native menu permits enabling it, no transcript/timed-script UI.
+  Node syntax checks and git diff whitespace checks passed. Changes are local
+  source edits; publication used the prepared static files, not a Git push.
+- Next: resolve ElevenLabs restriction and complete/review the missing workspace
+  narration before a later video replacement. Live simulator/API validation remains
+  separate and pending.
+
+## Demo narration local review, 14 October
+
+- User requested an ElevenLabs voiceover scripted from the existing demo, chose
+  male British English, then explicitly required local review before publication.
+- Current public domain is https://worldforge-lab.vercel.app/ (user correction;
+  browser verified). CLI inspection resolves it to the existing worldforge project
+  `prj_xSlObk6D5TIF9iwLE1aSDCqFYwup`, team rithishrs007projects, production
+  deployment `dpl_AXpsRdBxtHgLeNxJLisLKgjqNnky`, Root Directory `site`.
+  The Vercel connector returned a scope 403; existing CLI authentication works.
+- Reviewed the 156.57-second local SampleRec.mp4 through frame extraction. It
+  opens a sample after the AI connection dialog; it does not show live generation.
+  Narration describes the displayed Boxer results: 25.50 s, 20.51 m, zero contacts,
+  0.19 m minimum clearance, and the measured planar physics/replay workflow.
+- Script: `docs/demo-narration.json`. Initial George draft had ten completed
+  sections and a failed opening. User then signed in, added Daniel and Michael
+  Dan, and explicitly selected **Daniel - Warm, Clear & Dynamic Guide**. Created
+  new Daniel takes using ElevenLabs Multilingual v2, one take per section. Flow
+  ID: `DvCqfVbyGizVnalYupeb`. Ten Daniel sections completed, including the opening;
+  workspace section 03 failed with "Unusual activity has been detected on your
+  account, so Free Tier access has been disabled." No further attempts were made
+  after that restriction. The review uses Daniel throughout its available audio.
+- Local review: http://127.0.0.1:4175/; generated assets in ignored
+  `artifacts/voiceover/`. Clearly labelled incomplete: workspace 00:38-00:53 has
+  captions only. The opening and nine other sections have Daniel audio. Captions use approximate
+  phrase timing. The complete script and section seek controls accompany it.
+- Reproduce assembly: `.venv/Scripts/python.exe scripts/prepare-demo-voiceover.py
+  --manifest daniel-download-manifest.json --allow-missing`. Initial download adds
+  `--download`; private temporary manifest
+  stays in ignored artifacts. Local server: `.venv/Scripts/python.exe
+  scripts/serve-demo-review.py`. Pinned imageio-ffmpeg 0.6.0 is isolated under
+  artifacts/voiceover/tools; no global dependency changes.
+- Checks: all ten Daniel clips fit their assigned windows, ending at 153.834 s; video
+  stream SHA-256 is identical before/after muxing; local page/captions HTTP 200,
+  MP4 range request HTTP 206; Python compilation passed. Browser verified playback
+  with captions. Original video is silent; draft replaces its audio.
+- No Blob upload, deployment or changes to `site/`. Publication awaits user review
+  and approval. Next: user reviews this local draft and resolves the ElevenLabs
+  restriction for the workspace section; complete/review the edit before publication.
+
+## User-selectable coding model and effort, 14 October
+
+- User requested model/effort switching and reported GPT 6.1 was unavailable in
+  the picker. Removed Astra/high project overrides and the coding requirement
+  from AGENTS.md and the kickoff. This supersedes the original setup decision.
+- Launcher inherits Codex settings, with independent optional `-Model` and
+  `-ReasoningEffort` parameters. Example:
+  `./scripts/start-astra.ps1 -Model gpt-6.1-sol -ReasoningEffort high`.
+- Local checks passed: PowerShell parser; launcher `-Check` with neither option,
+  both options, model only and effort only; Python tomllib confirms no project
+  overrides; `git diff --check`. Plan.md SHA-256 matches the original below.
+- Official configuration precedence verified at
+  https://learn.chatgpt.com/docs/config-file/config-basic.
+  No live model request or app-picker verification performed. These changes do
+  not establish the cause of a missing picker entry or switch this running turn.
+- Next: reopen the project's model picker and select GPT-6.1 Sol and the desired
+  effort; investigate app/account availability if it remains absent.
+
+## Git deployment outage recovery, 18 September
+
+- PR #1 merged unchanged code as 627bc9c. Git deployment returned HTTP 404 because
+  Vercel Root Directory was blank; the homepage lives in site/.
+- Restored the last working production deployment, then saved Root Directory=site
+  (Framework Other, defaults for build/output/install). Git auto-deploy is connected.
+- Rebuilt the merged Git deployment as a preview and verified the WorldForge HTML,
+  Contact navigation and video markup. Preview:
+  https://worldforge-pfgs49ucx-rithishrs007projects.vercel.app.
+- No application-code changes or Git reverts were needed. Keep future manual
+  deployments consistent with the project root setting; see docs/HOSTING.md.
 
 ## Contact label and viewport fit, 18 September
 
@@ -23,7 +264,7 @@ Updated: 2026-09-18. Phase: **Submission first: robotics-focused editor and visi
   confirmed Analytics enabled, then received 1 visitor and 1 page view.
 - Profile navigation on landing, Build and Simulation, plus the landing footer,
   points to https://rithish.vercel.app/ as supplied by the user.
-- Published https://worldforge-nine.vercel.app/ via READY deployment
+- Published the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026) via READY deployment
   https://worldforge-e0mbr6jyj-rithishrs007projects.vercel.app. Public browser
   verified recording playback advancing beyond 20 seconds, no captured console
   errors, and the portfolio footer URL. Analytics script returned HTTP 200.
@@ -54,7 +295,7 @@ Updated: 2026-09-18. Phase: **Submission first: robotics-focused editor and visi
   git diff check passes. Actual browser verified expanded one-row menu, Escape,
   demo anchor/full-width area, Connect AI dialog, removed details and public page.
   No captured public-page console errors. Physics/API code unchanged.
-- Published and browser-verified https://worldforge-nine.vercel.app/ via READY
+- Published and browser-verified the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026) via READY
   deployment https://worldforge-gyhtt356q-rithishrs007projects.vercel.app.
   Local simulator restarted with the final build. Recording is still pending.
 
@@ -68,7 +309,7 @@ Updated: 2026-09-18. Phase: **Submission first: robotics-focused editor and visi
   `web/app/design.css`. Added matching light/dark illustration variants and
   retained the honest recording/local-only status and working video integration.
 - Published the static redesign to the existing Vercel project:
-  https://worldforge-nine.vercel.app/ (READY deployment
+  the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026) (READY deployment
   https://worldforge-88zyy2d1d-rithishrs007projects.vercel.app).
   Browser verified the public title, layout and local-setup dialog. Public links
   do not point to localhost. Local landing preview links to the local app.
@@ -223,7 +464,7 @@ Updated: 2026-09-18. Phase: **Submission first: robotics-focused editor and visi
   Browser checked light/dark/auto, persistence, grouping, rename + undo, prompt
   layout, scene colours, actual replay and no captured lab console errors.
   Default RB-THERON run remains SUCCESS, 28.32 s, 21.95 m and zero contacts.
-- Public revision deployed to the existing alias https://worldforge-nine.vercel.app/
+- Public revision deployed to the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026)
   via CLI; deployment `dpl_262PGCJkJhEjvpLYrWt6NS5wFYDh` is READY. Browser confirmed
   the new selector and updated working-prototype/recording status.
 - Local simulator is running via `scripts/start-demo.ps1`. Next: user review and
@@ -240,7 +481,7 @@ Updated: 2026-09-18. Phase: **Submission first: robotics-focused editor and visi
 - Theme deployed on 16 September using Vercel CLI 59.18.0, after signing in and
   linking `site/` to the existing `rithishrs007projects/worldforge` project.
   `vercel deploy --prod --yes --scope rithishrs007projects` returned READY and
-  aliased https://worldforge-nine.vercel.app/ to deployment
+  aliased the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026) to deployment
   `dpl_EPn1N3B3MBqA148LjULC9KR8c6XB`. Anonymous HTML, theme.css and warehouse.svg
   checks returned HTTP 200 with the expected theme declarations.
 - CLI linking generated local environment metadata; `.gitignore` and
@@ -330,7 +571,7 @@ so public WebSocket reconnection/session machinery remains deferred.
 
 ## Live submission page
 
-- Public URL: https://worldforge-nine.vercel.app/
+- Public URL: the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026)
 - Vercel project: https://vercel.com/rithishrs007projects/worldforge
 - Source: `site/`, commit `83c8146`, pushed to GitHub `main`.
 - Deployed through Vercel Drop to the user's existing Hobby account after sign-in.
@@ -365,8 +606,9 @@ Vercel page above provides one. Other challenge eligibility remains unverified.
 
 - Product contract: `Plan.md` (original user file, preserved).
 - Product name: WorldForge. Existing checkout/repository name: WordForge.
-- Coding model: `gpt-6-astra`, reasoning `high`.
-- Project default: `.codex/config.toml`; explicit launcher: `scripts/start-astra.ps1`.
+- Coding model and reasoning effort: user's Codex selection (updated 14 October).
+- `.codex/config.toml` has no model/effort overrides; `scripts/start-astra.ps1`
+  inherits Codex defaults or accepts optional `-Model` / `-ReasoningEffort`.
 - Implementation kickoff: `docs/ASTRA_BUILD.md`.
 - Repo root corresponds to the `astra/` root in Plan section 16. Do not nest it.
 - Next.js/R3F frontend; FastAPI/Pydantic backend; CPU MuJoCo workers; Vercel plus
@@ -408,9 +650,10 @@ research tool; detailed eligibility, deliverables, cutoff time and time zone are
 not yet verified. The extracted countdown shows zero and is not reliable evidence
 that submissions are closed. Confirm timing in the authenticated launch flow.
 
-Use Astra for product world generation/result interpretation as well as coding,
-with evidence of actual model/tool calls once implemented. This is the project's
-implementation choice, not a claim that the public page requires both uses.
+Use Astra for product world generation/result interpretation, with evidence of
+actual model/tool calls once implemented. Coding follows the user's selected
+model and effort. These are implementation choices, not a claim that the public
+page requires both uses.
 
 ## Original hosted-product gates (deferred)
 
@@ -483,3 +726,5 @@ the current recorded-demo scope.
 Next action: use `./scripts/start-demo.ps1` and rehearse `docs/LOCAL_DEMO.md`.
 The Astra launcher remains available for further coding; it is separate from
 the application launcher and does not schedule background work.
+
+Recovery verification: merged-commit production deployment worldforge-crymoyapr-rithishrs007projects.vercel.app is READY and aliased to the former worldforge-nine alias (retired). Homepage, CSS, video configuration and Analytics return HTTP 200; actual browser renders the restored page and video controls.

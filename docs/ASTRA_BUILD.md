@@ -6,7 +6,8 @@ video-first direction supersedes the original public-deployment gates. They
 reported 64 hours 42 minutes remaining at that update; confirm the real deadline
 before submission, and preserve a recording/upload buffer.
 
-Work directly in this repository with GPT-6 Astra / high. Do not stop after
+Work directly in this repository with the user's selected Codex model and effort.
+Do not stop after
 proposing another plan, queue another self-addressed kickoff, launch a recursive
 Codex session, or wait for hosting/API keys. Preserve the original `Plan.md`.
 

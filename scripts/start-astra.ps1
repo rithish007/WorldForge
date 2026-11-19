@@ -1,12 +1,16 @@
 [CmdletBinding()]
 param(
-    [switch]$Check
+    [switch]$Check,
+    [ValidateNotNullOrEmpty()]
+    [string]$Model,
+    [ValidateSet('none', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max', 'ultra')]
+    [string]$ReasoningEffort
 )
 
 $ErrorActionPreference = 'Stop'
 $repositoryRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 $promptPath = Join-Path $repositoryRoot 'docs\ASTRA_BUILD.md'
-$codexCommand = Get-Command codex -CommandType Application -ErrorAction Stop
+$codexCommand = Get-Command codex -CommandType Application -ErrorAction Stop | Select-Object -First 1
 
 foreach ($requiredFile in @('Plan.md', 'AGENTS.md', 'PROJECT.md', 'docs\ASTRA_BUILD.md', '.codex\config.toml')) {
     if (-not (Test-Path -LiteralPath (Join-Path $repositoryRoot $requiredFile) -PathType Leaf)) {
@@ -14,10 +18,19 @@ foreach ($requiredFile in @('Plan.md', 'AGENTS.md', 'PROJECT.md', 'docs\ASTRA_BU
     }
 }
 
+$codexArguments = @('--cd', $repositoryRoot)
+if ($Model) {
+    $codexArguments += @('--model', $Model)
+}
+if ($ReasoningEffort) {
+    $codexArguments += @('--config', ('model_reasoning_effort="{0}"' -f $ReasoningEffort))
+}
+
 if ($Check) {
     [pscustomobject]@{
-        Model = 'gpt-6-astra'
-        Reasoning = 'high'
+        Model = $(if ($Model) { $Model } else { 'Inherited from Codex settings' })
+        Reasoning = $(if ($ReasoningEffort) { $ReasoningEffort } else { 'Inherited from Codex settings' })
+        Arguments = $codexArguments
         Repository = $repositoryRoot
         Prompt = $promptPath
         Codex = $codexCommand.Source
@@ -27,7 +40,7 @@ if ($Check) {
 }
 
 $buildPrompt = Get-Content -LiteralPath $promptPath -Raw -Encoding UTF8
-& $codexCommand.Source --cd $repositoryRoot --model gpt-6-astra --config 'model_reasoning_effort="high"' $buildPrompt
+& $codexCommand.Source @codexArguments $buildPrompt
 if ($LASTEXITCODE -ne 0) {
     throw "Codex exited with status $LASTEXITCODE."
 }

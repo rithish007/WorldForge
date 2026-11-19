@@ -2,8 +2,46 @@
 
 The user authorized Vercel hosting on 15 September 2026 because the challenge
 requires a web link. The static page is in `site/`; the simulator remains a
-separate local-prototype milestone. It currently states that development and
-the demo recording are pending. No OpenAI API key is used by this page.
+separate local-prototype milestone. The page includes the recorded demo.
+No OpenAI API key is used by this page.
+
+## Narrated video update, 14 October
+
+Current public site: https://worldforge-lab.vercel.app/. User approved publishing
+the locally reviewed 74.267-second Daniel narration. `site/demo-config.js` now uses:
+https://nb9armtxzicez6ho.public.blob.vercel-storage.com/WorldForge-Demo-Short-Narrated.mp4.
+The original SampleRec.mp4 and prior long narrated Blob are retained for rollback.
+This new cut has complete narration; action pauses were adjusted locally from
+one successful 1,058-credit take. No additional generation was needed to publish.
+
+English captions are a separate `site/captions-en.vtt` track, off initially and
+enabled by the viewer in the native player menu. The public site has no review
+page, transcript or timed script. Captions match the short narration with
+approximate phrase timing; config and caption URLs have a new version suffix.
+
+Deployment `dpl_EmiXxwQvpC3a9BTmaQojkqsckbpR`:
+https://worldforge-osjm42k4j-rithishrs007projects.vercel.app.
+Deployed a static-only package with nested site/ and the existing project link,
+then promoted after browser verification. Root Directory remains site. Anonymous
+public content and MP4 byte ranges verified; browser playback and caption controls
+verified. No environment files or local review artifacts were deployed.
+
+For a future replacement, upload the approved MP4 to the existing WorldForge Blob
+store under a new filename, update `site/demo-config.js`, refresh optional captions,
+and stage/verify/promote the same existing Vercel project. Uploading a Blob alone
+does not change the player URL. Use signed-in dashboard upload when CLI Blob
+credentials are unavailable; do not export production secrets without authorization.
+
+## Current Git deployment configuration, 18 September
+
+Git auto-deployment is now connected. After PR #1 merged, the repository-root
+configuration published a deployment without an index page, returning HTTP 404.
+Corrected the existing Vercel project Root Directory to **site**, keeping Framework
+Preset **Other** and the default static output (no build/install commands).
+Rebuilt merge commit 627bc9c and verified the resulting homepage before promotion.
+When deploying manually, use a repository-root checkout with this project setting;
+do not upload site/ alone while Vercel expects a nested site directory.
+Earlier disconnected-Git and site-directory CLI notes below are historical.
 
 ## Source and deployment
 
@@ -16,7 +54,7 @@ static runtime asset. Recording remains pending.
 Latest update, 17 September: redesigned landing page with centred typography,
 notch menu, shared app theme and explicit local-access dialog deployed successfully
 as https://worldforge-88zyy2d1d-rithishrs007projects.vercel.app and aliased to
-https://worldforge-nine.vercel.app/. Production browser verification passed,
+the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026). Production browser verification passed,
 including the access dialog and mobile layout. Command from `site/`:
 `npx.cmd --offline --yes vercel@59.18.0 deploy --prod --yes --scope rithishrs007projects`.
 The existing cached CLI was used after the online npx registry lookup stalled.
@@ -30,7 +68,7 @@ No recording or hosted simulator was added. Submission next steps are in
 - Initial deployment method: Vercel Drop, uploading only the seven files under
   `site/`. The existing GitHub app does not currently have access to this repo.
 - Git auto-deploy is **not connected**. A Git push alone does not update the site.
-- Production URL: https://worldforge-nine.vercel.app/
+- Production URL: the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026)
 - Dashboard: https://vercel.com/rithishrs007projects/worldforge
 - Initial deployment: https://worldforge-9bwobsae7-rithishrs007projects.vercel.app
 - Result: Vercel reported successful deployment; production page verified on
@@ -45,7 +83,7 @@ The local simulator and theme source are checkpointed on `codex/local-demo`.
 - Command: `npx.cmd --yes vercel@59.18.0 deploy --prod --yes --scope rithishrs007projects`.
 - Deployment: https://worldforge-qb7nt4pq4-rithishrs007projects.vercel.app
 - Vercel returned READY and the existing production alias remains
-  https://worldforge-nine.vercel.app/.
+  the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026).
 - Anonymous checks returned HTTP 200 for HTML, theme.css and warehouse.svg;
   theme declarations are present. The system theme update is now public.
 - Local `.vercel/` and `.env*` are ignored; `.vercelignore` explicitly excludes
@@ -108,3 +146,5 @@ Deployment: https://worldforge-e0mbr6jyj-rithishrs007projects.vercel.app
 Portfolio: https://rithish.vercel.app/
 The root SampleRec.mp4 is not deployed or committed; demo-config.js holds the
 public Blob URL. This supersedes earlier recording-pending verification notes.
+
+Recovery production deployment: https://worldforge-crymoyapr-rithishrs007projects.vercel.app (READY), alias the former worldforge-nine alias (retired; returned 404 on 18 Nov 2026). Anonymous HTTP 200 checks and actual browser rendering passed after promotion of the rebuilt Git commit.

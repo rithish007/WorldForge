@@ -31,6 +31,7 @@ test-results/
 artifacts/runs/
 artifacts/theme-preview/
 artifacts/deploy/
+artifacts/voiceover/
 *.tsbuildinfo
 
 # OS/editor-local files

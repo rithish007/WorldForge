@@ -1,0 +1,246 @@
+{
+  "source": "SampleRec.mp4",
+  "duration_seconds": 74.2405,
+  "voice": "Daniel - Warm, Clear & Dynamic Guide",
+  "voice_id": "ynTHHllfDmGsZ3G8QJt9",
+  "model_id": "eleven_multilingual_v2",
+  "language": "en-GB",
+  "review_only": true,
+  "paragraphs": [
+    {
+      "id": "intro",
+      "text": "WorldForge brings warehouse design, route planning and mobile robot simulation into one web workspace.",
+      "start": 0.0,
+      "end": 6.5059375
+    },
+    {
+      "id": "prompt",
+      "text": "Start by describing the environment you want to build. For example, a twenty by thirty metre warehouse with storage racks and obstacles.",
+      "start": 6.5059375,
+      "end": 14.2390625
+    },
+    {
+      "id": "connection",
+      "text": "Connect your own OpenAI API key for AI-assisted building and editing. For this walkthrough, we'll open an existing Astra-authored sample warehouse.",
+      "pause_after_seconds": 1,
+      "start": 14.2390625,
+      "end": 24.102270833333332
+    },
+    {
+      "id": "robot",
+      "text": "Explore the layout, then choose the robot you want to test. The clearance overlay shows the space it needs around obstacles.",
+      "start": 24.102270833333332,
+      "end": 33.102291666666666
+    },
+    {
+      "id": "mission",
+      "text": "Set a start and destination directly in the scene, and plan a route through the warehouse.",
+      "start": 33.102291666666666,
+      "end": 41.102270833333336
+    },
+    {
+      "id": "edit",
+      "text": "Adjust a rack's dimensions, apply the edit, and plan again to see how the layout changes the route.",
+      "pause_after_seconds": 1,
+      "start": 41.102270833333336,
+      "end": 49.102270833333336
+    },
+    {
+      "id": "run",
+      "text": "Now run the mission using planar MuJoCo physics.",
+      "pause_after_seconds": 1,
+      "start": 49.102270833333336,
+      "end": 55.102291666666666
+    },
+    {
+      "id": "results",
+      "text": "Follow the robot through the warehouse, then inspect the outcome. Review time, distance, contacts and clearance, and replay the journey from different angles.",
+      "start": 55.102291666666666,
+      "end": 68.10229166666667
+    },
+    {
+      "id": "closing",
+      "text": "WorldForge helps you explore warehouse layouts and test robot missions before moving to a physical setup.",
+      "start": 68.10229166666667,
+      "end": 74.2405
+    }
+  ],
+  "sections": [
+    {
+      "id": "intro",
+      "start": 0.0,
+      "end": 6.5059375,
+      "clips": [
+        {
+          "in": 103,
+          "out": 109
+        }
+      ]
+    },
+    {
+      "id": "prompt",
+      "start": 6.5059375,
+      "end": 14.2390625,
+      "clips": [
+        {
+          "in": 20,
+          "out": 28,
+          "speed": 1.2
+        }
+      ]
+    },
+    {
+      "id": "connection",
+      "start": 14.2390625,
+      "end": 24.102270833333332,
+      "clips": [
+        {
+          "in": 29,
+          "out": 34
+        },
+        {
+          "in": 34,
+          "out": 38
+        }
+      ]
+    },
+    {
+      "id": "robot",
+      "start": 24.102270833333332,
+      "end": 33.102291666666666,
+      "clips": [
+        {
+          "in": 50,
+          "out": 53
+        },
+        {
+          "in": 55,
+          "out": 61
+        }
+      ]
+    },
+    {
+      "id": "mission",
+      "start": 33.102291666666666,
+      "end": 41.102270833333336,
+      "clips": [
+        {
+          "in": 65,
+          "out": 67.5
+        },
+        {
+          "in": 69,
+          "out": 72.5
+        },
+        {
+          "in": 74,
+          "out": 76
+        }
+      ]
+    },
+    {
+      "id": "edit",
+      "start": 41.102270833333336,
+      "end": 49.102270833333336,
+      "clips": [
+        {
+          "in": 86.5,
+          "out": 92.5
+        },
+        {
+          "in": 94,
+          "out": 96
+        }
+      ]
+    },
+    {
+      "id": "run",
+      "start": 49.102270833333336,
+      "end": 55.102291666666666,
+      "clips": [
+        {
+          "in": 96,
+          "out": 102
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "start": 55.102291666666666,
+      "end": 68.10229166666667,
+      "clips": [
+        {
+          "in": 102,
+          "out": 110
+        },
+        {
+          "in": 111,
+          "out": 116
+        }
+      ]
+    },
+    {
+      "id": "closing",
+      "start": 68.10229166666667,
+      "end": 74.2405,
+      "clips": [
+        {
+          "in": 124,
+          "out": 130
+        }
+      ]
+    }
+  ],
+  "narration_status": "complete: one paid-plan Daniel take; timing adjusted offline without further generation",
+  "audio_edit": {
+    "source": "artifacts/voiceover/short/narration.mp3",
+    "source_paragraph_boundaries": [
+      0,
+      6.50593,
+      14.239059,
+      24.102279,
+      31.5856805,
+      36.3939225,
+      42.316655,
+      46.6685375,
+      56.2347845,
+      62.372993
+    ],
+    "pause_inserts": [
+      {
+        "at": 28.0183105,
+        "seconds": 1.5165985000000006
+      },
+      {
+        "at": 36.3939225,
+        "seconds": 3.1917579999999965
+      },
+      {
+        "at": 42.316655,
+        "seconds": 2.077267500000005
+      },
+      {
+        "at": 46.6685375,
+        "seconds": 1.648117499999998
+      },
+      {
+        "at": 50.7370295,
+        "seconds": 2
+      },
+      {
+        "at": 56.2347845,
+        "seconds": 1.4337529999999958
+      }
+    ],
+    "method": "One complete take; add silence at existing quiet pauses, preserving speech samples. Paragraph boundaries reviewed against source pauses; captions approximate."
+  },
+  "narration_audio": "artifacts/voiceover/short/narration-timed.wav",
+  "generation": {
+    "flow_id": "KFFgO1X0ga1w2BPZMbZf",
+    "session_id": "3XcBRVIapPf2YIejgOHa",
+    "generation_id": "pr6TkXOTwDTQsYKtbi32",
+    "reported_credits": 1058,
+    "takes": 1,
+    "original_duration_seconds": 62.5081179138322
+  }
+}

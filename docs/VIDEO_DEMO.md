@@ -97,7 +97,7 @@ exact submission fields, cutoff and time zone remain unverified.** Check these
 in the authenticated submission flow; choosing video-first does not establish
 eligibility. No listing has been submitted or scheduled.
 
-The submission page is now live at https://worldforge-nine.vercel.app/ and awaits
+The submission page is now live at https://worldforge-lab.vercel.app/ and awaits
 the recording. It does not host a running robot backend. The initial deploy used
 Vercel Drop because the GitHub installation cannot yet access WordForge. See
 `docs/HOSTING.md` before updates; Git auto-deployment is not connected.

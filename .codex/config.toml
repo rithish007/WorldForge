@@ -1,3 +1,2 @@
-# WorldForge coding model. Inherit existing authentication and permissions.
-model = "gpt-6-astra"
-model_reasoning_effort = "high"
+# Model and reasoning effort follow the user's Codex selection.
+# No project overrides; inherit existing authentication and permissions.

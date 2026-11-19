@@ -68,7 +68,7 @@ If no live call succeeds, omit live AI generation from the recorded claims.
 
 **Tagline:** Build warehouse worlds. Test robot missions.
 
-**Website:** https://worldforge-nine.vercel.app/
+**Website:** https://worldforge-lab.vercel.app/
 
 **Repository:** https://github.com/rithish007/WordForge
 

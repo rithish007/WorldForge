@@ -1,0 +1,21 @@
+{
+  "source": "SampleRec.mp4",
+  "duration_seconds": 156.567,
+  "voice": "Daniel - Warm, Clear & Dynamic Guide",
+  "voice_id": "ynTHHllfDmGsZ3G8QJt9",
+  "model_id": "eleven_multilingual_v2",
+  "language": "en-GB",
+  "segments": [
+    {"id": "01-introduction", "start": 1.0, "end": 27.0, "text": "This is WorldForge, a local prototype for building warehouse environments and testing mobile robot missions. We begin with a description of a warehouse testing facility: twenty by thirty metres, seven racks, and a few obstacles. The interface brings environment design, route planning, and simulation into one workspace, so you can explore how a layout affects the robot's journey."},
+    {"id": "02-ai-connection", "start": 28.0, "end": 37.0, "text": "Live AI requires a separate API connection. In this recording, we continue by opening an existing sample warehouse."},
+    {"id": "03-workspace", "start": 38.0, "end": 53.0, "text": "The sample opens in the simulation workspace. Objects are listed on the left, the three dimensional scene sits in the centre, and the inspector is on the right. Orbit and zoom to inspect the layout."},
+    {"id": "04-robot", "start": 54.0, "end": 64.0, "text": "The clearance overlay makes the robot's required space visible. Here, we switch from Robotnik's Theron to Clearpath's Boxer and inspect its specifications."},
+    {"id": "05-mission", "start": 65.0, "end": 73.0, "text": "Next, we choose the mission's start and goal directly in the scene. These markers define the journey through the warehouse."},
+    {"id": "06-planning", "start": 74.0, "end": 84.0, "text": "Plan route draws a path between the markers, taking the obstacles and robot clearance into account. We can inspect individual objects alongside the route."},
+    {"id": "07-editing", "start": 85.0, "end": 94.0, "text": "The inspector lets us adjust a rack's dimensions. Once the edit is applied, we plan again to see how the changed layout affects the route."},
+    {"id": "08-run", "start": 95.0, "end": 101.0, "text": "Now we run the mission using the prototype's planar MuJoCo physics simulation."},
+    {"id": "09-results", "start": 102.0, "end": 124.0, "text": "The run succeeds. The results show twenty five point five seconds of simulation time, twenty point five one metres travelled, zero contacts, and a minimum clearance of zero point one nine metres. The replay lets us follow the robot through the warehouse and inspect its motion from different angles."},
+    {"id": "10-inspection", "start": 125.0, "end": 138.0, "text": "The results panel can be expanded for closer inspection. Measurement details explain the clearance calculation and the velocity controlled planar model, helping us interpret exactly what this run demonstrates."},
+    {"id": "11-closing", "start": 140.0, "end": 155.0, "text": "Reset clears the run so another mission can be tested. The workspace also supports light and dark themes. WorldForge brings layout editing, safe route planning, and measured simulation results together in a working local robotics prototype."}
+  ]
+}
